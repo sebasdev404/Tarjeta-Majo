@@ -22,7 +22,7 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
   function abrir(){
     if(!env||env.classList.contains('open'))return;
     env.classList.add('open');                       // 1) se abre la solapa y sube la carta
-    a.play().then(function(){mb.classList.add('playing')}).catch(function(){});
+    if(window.__playMusic)window.__playMusic();      // arranca la música (gesto del usuario)
     if(btn)btn.style.opacity='0';
     if(cap)cap.style.opacity='0';
     setTimeout(function(){                            // 2) se desvanece el sobre -> invitación
@@ -106,11 +106,59 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
   }
 })();
 
-/* ---- música ---- */
+/* ---- música: usa "musica.mp3" si existe; si no, la canción de YouTube ---- */
 (function(){
-  var b=document.getElementById('musicBtn'),a=document.getElementById('bgAudio');
-  b.addEventListener('click',function(){
-    if(a.paused){a.play().then(function(){b.classList.add('playing')}).catch(function(){b.title='Agrega "musica.mp3" en esta carpeta';});}
-    else{a.pause();b.classList.remove('playing');}
+  var VIDEO_ID='BDwEyfgClF4';               // canción elegida (YouTube)
+  var btn=document.getElementById('musicBtn');
+  var audio=document.getElementById('bgAudio');
+  var mode=null;                            // 'mp3' | 'yt'
+  var yt=null, ytReady=false, ytWant=false;
+
+  function setPlaying(on){ if(btn) btn.classList.toggle('playing', !!on); }
+
+  /* --- YouTube (reproductor oculto) --- */
+  function loadYT(){
+    if(window.YT && window.YT.Player){ initYT(); return; }
+    if(document.getElementById('ytapi')) return;
+    var t=document.createElement('script'); t.id='ytapi';
+    t.src='https://www.youtube.com/iframe_api';
+    document.head.appendChild(t);
+    window.onYouTubeIframeAPIReady=initYT;
+  }
+  function initYT(){
+    if(yt) return;
+    yt=new YT.Player('ytPlayer',{
+      width:'200', height:'200', videoId:VIDEO_ID,
+      playerVars:{controls:0,disablekb:1,loop:1,playlist:VIDEO_ID,playsinline:1,rel:0,modestbranding:1},
+      events:{
+        onReady:function(){ ytReady=true; if(ytWant) ytPlay(); },
+        onStateChange:function(e){
+          if(e.data===YT.PlayerState.ENDED){ yt.seekTo(0); yt.playVideo(); }
+          setPlaying(e.data===YT.PlayerState.PLAYING);
+        }
+      }
+    });
+  }
+  function ytPlay(){
+    if(!ytReady){ ytWant=true; loadYT(); return; }
+    try{ yt.unMute(); yt.setVolume(75); yt.playVideo(); }catch(e){}
+  }
+  function ytToggle(){
+    if(!yt){ ytPlay(); return; }
+    var s=yt.getPlayerState();
+    if(s===YT.PlayerState.PLAYING) yt.pauseVideo(); else ytPlay();
+  }
+
+  /* --- iniciar al abrir el sobre --- */
+  window.__playMusic=function(){
+    audio.play().then(function(){ mode='mp3'; setPlaying(true); })
+      .catch(function(){ mode='yt'; ytPlay(); });   // no hay mp3 -> YouTube
+  };
+
+  /* --- botón flotante para pausar/reanudar --- */
+  if(btn) btn.addEventListener('click',function(){
+    if(mode==='mp3'){ if(audio.paused){audio.play();setPlaying(true);} else {audio.pause();setPlaying(false);} return; }
+    if(mode==='yt'){ ytToggle(); return; }
+    window.__playMusic();
   });
 })();

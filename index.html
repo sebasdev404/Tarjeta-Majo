@@ -288,7 +288,9 @@
 <button class="music-btn" id="musicBtn" title="Música" aria-label="Música">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17a3 3 0 1 1-2-2.83V5l11-2v9.17A3 3 0 1 1 16 14V7.2L9 8.6V17z"/></svg>
 </button>
+<!-- Música: si existe "musica.mp3" lo usa; si no, reproduce la canción de YouTube -->
 <audio id="bgAudio" loop preload="none" src="musica.mp3"></audio>
+<div id="ytWrap" aria-hidden="true" style="position:fixed;left:0;bottom:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;z-index:-1"><div id="ytPlayer"></div></div>
 
 <script src="script.js" defer></script>
 </body>
