@@ -2,7 +2,7 @@
 ==================================================
 
 Guarda aquí las imágenes con ESTOS nombres exactos
-(o cambia los nombres dentro de "invitacion-majo.html"):
+(o cambia los nombres dentro de "index.html"):
 
   maria-jose.jpg   →  FOTO PRINCIPAL   (vertical, formato 3:4, ej. 900 x 1200 px)
   recuerdo-1.jpg   →  GALERÍA grande   (horizontal 16:9, ej. 1280 x 720 px)

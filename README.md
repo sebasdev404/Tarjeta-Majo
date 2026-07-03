@@ -6,17 +6,17 @@ Página web elegante en azul bebé + dorado, con animación de sobre, mariposas,
 cuenta regresiva, programa, galería de fotos y confirmación por WhatsApp.
 
 ## Archivos
-- `invitacion-majo.html` — estructura de la invitación
+- `index.html` — estructura de la invitación
 - `styles.css` — estilos (colores, tipografía, animaciones, responsivo)
 - `script.js` — lógica (sobre, cuenta regresiva, WhatsApp, mariposas, destellos)
 - `fotos/` — imágenes (foto principal y galería)
 
 ## Ver la invitación
-Abre `invitacion-majo.html` en el navegador.
+Abre `index.html` en el navegador (o la URL de Vercel).
 
 Para personalizar el nombre del invitado en el link:
 ```
-invitacion-majo.html?nombre=familia%20Perdomo%20Trujillo
+tarjeta-majo.vercel.app/?nombre=familia%20Perdomo%20Trujillo
 ```
 
 ## Datos del evento
