@@ -1,0 +1,19 @@
+📷 CARPETA DE FOTOS — Invitación XVI de María José
+==================================================
+
+Guarda aquí las imágenes con ESTOS nombres exactos
+(o cambia los nombres dentro de "invitacion-majo.html"):
+
+  maria-jose.jpg   →  FOTO PRINCIPAL   (vertical, formato 3:4, ej. 900 x 1200 px)
+  recuerdo-1.jpg   →  GALERÍA grande   (horizontal 16:9, ej. 1280 x 720 px)
+  recuerdo-2.jpg   →  GALERÍA pequeña  (cuadrada 1:1, ej. 800 x 800 px)
+  recuerdo-3.jpg   →  GALERÍA pequeña  (cuadrada 1:1, ej. 800 x 800 px)
+
+Notas:
+- Si una foto no existe todavía, en la invitación se muestra un
+  recuadro elegante que dice "Tu foto aquí". No se rompe nada.
+- Puedes usar .jpg o .png (si usas .png, cambia la extensión en el HTML).
+- Si quieres más fotos en la galería, copia un bloque <div class="photo photo-g">
+  dentro de la sección "GALERÍA / RECUERDOS" del HTML.
+
+(Este archivo LEER.txt lo puedes borrar.)
