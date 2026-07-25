@@ -1,6 +1,6 @@
-# Tarjeta Majo · Invitación XVI
+# Tarjeta Majo · Invitación XV
 
-Invitación digital para los **XVI años de María José Perdomo Trujillo**.
+Invitación digital para los **XV años de María José Perdomo Trujillo**.
 
 Página web elegante en azul bebé + dorado, con animación de sobre, mariposas,
 cuenta regresiva, programa, galería de fotos y confirmación por WhatsApp.
