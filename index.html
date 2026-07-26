@@ -114,6 +114,7 @@
   <div class="guest" id="coverGuest" hidden>
     <span class="label">Reservado para</span>
     <span class="who" id="coverGuestName"></span>
+    <span class="guest-count" id="coverGuestCount" hidden></span>
   </div>
 
   <button class="open-btn" id="openBtn">Abrir invitación</button>
@@ -130,6 +131,11 @@
       <div class="xv-hero"><span class="xv-num">XV</span><span class="xv-word">años</span></div>
       <div class="script name">María José</div>
       <div class="surname">Perdomo Trujillo</div>
+      <div class="guest-inside" id="guestInside" hidden>
+        <span class="label" style="letter-spacing:.2em">Invitación para</span>
+        <span class="who" id="guestInsideName"></span>
+        <span class="guest-count" id="guestInsideCount" style="display:block;font-family:'Montserrat',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);margin-top:4px"></span>
+      </div>
       <svg class="flourish" style="margin:12px auto 2px"><use href="#flourish"/></svg>
 
       <div class="facts">
@@ -403,6 +409,9 @@
 <button class="music-btn" id="musicBtn" title="Música" aria-label="Música">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17a3 3 0 1 1-2-2.83V5l11-2v9.17A3 3 0 1 1 16 14V7.2L9 8.6V17z"/></svg>
 </button>
+<a class="links-btn" id="linksBtn" href="javascript:void(0)" title="Lista de invitados" aria-label="Lista de invitados">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M4 6h1M4 12h1M4 18h1"/></svg>
+</a>
 <!-- Música: si existe "musica.mp3" lo usa; si no, reproduce la canción de YouTube -->
 <audio id="bgAudio" loop preload="none" src="musica.mp3"></audio>
 <div id="ytWrap" aria-hidden="true" style="position:fixed;left:0;bottom:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;z-index:-1"><div id="ytPlayer"></div></div>

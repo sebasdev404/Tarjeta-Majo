@@ -108,6 +108,7 @@ body.locked{overflow:hidden;height:100vh;height:100svh}
 .cover .guest{margin-top:30px;animation:rise 1.1s .55s both}
 .cover .guest .label{display:block;margin-bottom:6px}
 .cover .guest .who{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--bb-600);text-transform:capitalize}
+.cover .guest .guest-count{display:block;margin-top:8px;font-family:'Montserrat',sans-serif;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
 
 .surname{font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:.3em;
   text-transform:uppercase;font-size:.66rem;color:var(--ink-soft);margin-top:14px}
@@ -154,6 +155,8 @@ section{
 .hero .xvi b{font-weight:500;color:var(--gold-deep)}
 .hero .date{margin-top:24px;font-family:'Montserrat',sans-serif;letter-spacing:.32em;
   text-transform:uppercase;font-size:.72rem;color:var(--ink-soft)}
+.guest-inside{margin-top:22px;padding:14px 20px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.7));border:1px solid rgba(196,162,95,.35);border-radius:8px;display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.guest-inside .who{font-size:1.3rem;color:var(--bb-600);text-transform:capitalize;font-weight:500}
 
 /* ====== MARCOS DE FOTO (plantilla) ====== */
 .photo{position:relative;overflow:hidden;box-shadow:var(--shadow);
@@ -268,6 +271,11 @@ footer .small{font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacin
   box-shadow:var(--shadow);color:var(--bb-600)}
 .music-btn svg{width:22px;height:22px}
 .music-btn.playing{animation:spin 4.5s linear infinite;color:var(--gold)}
+.links-btn{position:fixed;right:22px;bottom:80px;z-index:40;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(255,255,255,.92);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);color:var(--bb-600);text-decoration:none}
+.links-btn svg{width:22px;height:22px}
+.links-btn:hover{background:var(--gold);color:#fff}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ============ SOBRE (animación de apertura) ============ */

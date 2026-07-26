@@ -4,11 +4,25 @@
    animaciones, mariposas y música.
    =========================================================== */
 
-/* ---- nombre del invitado (?nombre=) ---- */
+/* ---- nombre (?nombre=) e invitados (?invitados=) ---- */
 (function(){
-  var n=new URLSearchParams(location.search).get('nombre');
-  if(n){var g=document.getElementById('coverGuest');
-    document.getElementById('coverGuestName').textContent=n.trim();g.hidden=false;}
+  var s=new URLSearchParams(location.search);
+  var nom=s.get('nombre'), inv=s.get('invitados');
+  if(nom||inv){
+    var txt='', el; nom=nom||'';
+    if(inv){
+      var n=parseInt(inv,10);
+      txt=(n||1)+' '+(n===1?'invitado':'invitados');
+    }
+    /* portada */
+    if(nom){el=document.getElementById('coverGuestName');if(el)el.textContent=nom.trim();}
+    if(txt){el=document.getElementById('coverGuestCount');if(el){el.textContent=txt;el.hidden=false;}}
+    if(nom){el=document.getElementById('coverGuest');if(el)el.hidden=false;}
+    /* dentro de la invitacion */
+    if(nom){el=document.getElementById('guestInsideName');if(el)el.textContent=nom.trim();}
+    if(nom){el=document.getElementById('guestInside');if(el)el.hidden=false;}
+    if(txt){el=document.getElementById('guestInsideCount');if(el){el.textContent=txt;el.hidden=false;}}
+  }
 })();
 
 /* ---- fecha del evento ---- */
@@ -21,12 +35,11 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
       a=document.getElementById('bgAudio'),mb=document.getElementById('musicBtn');
   function abrir(){
     if(!env||env.classList.contains('open'))return;
-    env.classList.add('open');                       // 1) se abre la solapa y sube la carta
-    spawnBurst();                                    //    salen mariposas volando del sobre
-    if(window.__playMusic)window.__playMusic();      // arranca la música (gesto del usuario)
+    env.classList.add('open');
+    spawnBurst();
     if(btn)btn.style.opacity='0';
     if(cap)cap.style.opacity='0';
-    setTimeout(function(){                            // 2) se desvanece el sobre -> invitación
+    setTimeout(function(){
       cover.classList.add('open');document.body.classList.remove('locked');
     },2700);
     setTimeout(function(){cover.style.display='none'},3900);
@@ -76,7 +89,11 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
 
 /* ---- WhatsApp ---- */
 (function(){
-  var msg='¡Hola! Confirmo mi asistencia a los XV de María José el 12 de septiembre. 🦋';
+  var p=new URLSearchParams(location.search);
+  var n=p.get('nombre');
+  var c=p.get('invitados');
+  var inv=c?' ('+c.trim()+' '+(c.trim()==='1'?'invitado':'invitados')+')':'';
+  var msg=n?'¡Hola! Confirmo mi asistencia a los XV de María José el 12 de septiembre. 🦋\n\n— '+n.trim()+inv:'¡Hola! Confirmo mi asistencia a los XV de María José el 12 de septiembre. 🦋';
   var t=encodeURIComponent(msg);
   document.getElementById('waBtn').href='https://wa.me/573157843568?text='+t;
   document.getElementById('waBtn2').href='https://wa.me/573175110288?text='+t;
@@ -197,24 +214,39 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
     if(s===YT.PlayerState.PLAYING) yt.pauseVideo(); else ytPlay();
   }
 
-  /* --- iniciar al abrir el sobre --- */
-  window.__playMusic=function(){
+  /* --- arrancar la música (en cualquier gesto del usuario, sin esperar el sobre) --- */
+  function playMusic(){
+    if(mode) return;
     audio.play().then(function(){ mode='mp3'; setPlaying(true); })
-      .catch(function(){ mode='yt'; ytPlay(); });   // no hay mp3 -> YouTube
-  };
+      .catch(function(){ mode='yt'; ytPlay(); });
+  }
 
   /* --- botón flotante para pausar/reanudar --- */
   if(btn) btn.addEventListener('click',function(){
     if(mode==='mp3'){ if(audio.paused){audio.play();setPlaying(true);} else {audio.pause();setPlaying(false);} return; }
     if(mode==='yt'){ ytToggle(); return; }
-    window.__playMusic();
+    playMusic();
   });
 
-  /* --- iniciar la música lo antes posible --- */
-  function autoStart(){ try{ window.__playMusic(); }catch(e){} }
-  autoStart();                                  // intento inmediato (si el navegador lo permite)
-  // respaldo: al primer gesto del usuario en cualquier parte de la página
+  /* --- primer gesto del usuario en cualquier parte de la página arranca la música --- */
+  function firstTouch(){ playMusic(); }
   ['pointerdown','touchstart','click','keydown','scroll'].forEach(function(ev){
-    window.addEventListener(ev, function once(){ autoStart(); }, {once:true, passive:true});
+    window.addEventListener(ev, firstTouch, {once:true, passive:true});
+  });
+  /* --- también intentar al cargar (por si el navegador lo permite) --- */
+  try{ audio.play().then(function(){ mode='mp3'; setPlaying(true); }).catch(function(){}) }catch(e){}
+})();
+
+/* ---- botón de links (protegido con contraseña) ---- */
+(function(){
+  var btn=document.getElementById('linksBtn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var pwd=prompt('Ingresa la contraseña para acceder a la lista de invitados:');
+    if(pwd==='majo123'){
+      window.open('links_invitacion.html?pwd=majo123','_blank');
+    }else if(pwd!==null){
+      alert('Contraseña incorrecta');
+    }
   });
 })();
