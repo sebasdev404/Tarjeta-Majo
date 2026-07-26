@@ -93,7 +93,7 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
   var n=p.get('nombre');
   var c=p.get('invitados');
   var inv=c?' ('+c.trim()+' '+(c.trim()==='1'?'invitado':'invitados')+')':'';
-  var msg=n?'¡Hola! Confirmo mi asistencia a los XV de María José el 12 de septiembre. 🦋\n\n— '+n.trim()+inv:'¡Hola! Confirmo mi asistencia a los XV de María José el 12 de septiembre. 🦋';
+  var msg=n?'\u00a1Hola! Con mucho gusto confirmo mi asistencia a los XV a\u00f1os de Mar\u00eda Jos\u00e9 el pr\u00f3ximo 12 de septiembre. \u00a1No me lo perder\u00eda por nada del mundo! \ud83e\udd8b\n\n\u2014 '+n.trim()+inv:'\u00a1Hola! Con mucho gusto confirmo mi asistencia a los XV a\u00f1os de Mar\u00eda Jos\u00e9 el pr\u00f3ximo 12 de septiembre. \u00a1No me lo perder\u00eda por nada del mundo! \ud83e\udd8b';
   var t=encodeURIComponent(msg);
   document.getElementById('waBtn').href='https://wa.me/573157843568?text='+t;
   document.getElementById('waBtn2').href='https://wa.me/573175110288?text='+t;
@@ -171,17 +171,17 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
   lb.addEventListener('click',function(){lb.classList.remove('show');img.src='';});
 })();
 
-/* ---- música: usa "musica.mp3" si existe; si no, la canción de YouTube ---- */
+/* ---- música: usa YouTube (arranca muteado al instante) ---- */
 (function(){
-  var VIDEO_ID='BDwEyfgClF4';               // canción elegida (YouTube)
+  var VIDEO_ID='BDwEyfgClF4';
   var btn=document.getElementById('musicBtn');
   var audio=document.getElementById('bgAudio');
-  var mode=null;                            // 'mp3' | 'yt'
-  var yt=null, ytReady=false, ytWant=false;
+  var mode=null;
+  var yt=null, ytReady=false;
 
   function setPlaying(on){ if(btn) btn.classList.toggle('playing', !!on); }
 
-  /* --- YouTube (reproductor oculto) --- */
+  /* --- YouTube --- */
   function loadYT(){
     if(window.YT && window.YT.Player){ initYT(); return; }
     if(document.getElementById('ytapi')) return;
@@ -193,10 +193,11 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
   function initYT(){
     if(yt) return;
     yt=new YT.Player('ytPlayer',{
-      width:'200', height:'200', videoId:VIDEO_ID,
-      playerVars:{controls:0,disablekb:1,loop:1,playlist:VIDEO_ID,playsinline:1,rel:0,modestbranding:1},
       events:{
-        onReady:function(){ ytReady=true; if(ytWant) ytPlay(); },
+        onReady:function(){
+          ytReady=true; mode='yt'; setPlaying(true);
+          yt.unMute(); yt.setVolume(75);
+        },
         onStateChange:function(e){
           if(e.data===YT.PlayerState.ENDED){ yt.seekTo(0); yt.playVideo(); }
           setPlaying(e.data===YT.PlayerState.PLAYING);
@@ -204,37 +205,21 @@ var EVENT=new Date('2026-09-12T19:00:00-05:00');
       }
     });
   }
-  function ytPlay(){
-    if(!ytReady){ ytWant=true; loadYT(); return; }
-    try{ yt.unMute(); yt.setVolume(75); yt.playVideo(); }catch(e){}
-  }
-  function ytToggle(){
-    if(!yt){ ytPlay(); return; }
-    var s=yt.getPlayerState();
-    if(s===YT.PlayerState.PLAYING) yt.pauseVideo(); else ytPlay();
-  }
 
-  /* --- arrancar la música (en cualquier gesto del usuario, sin esperar el sobre) --- */
-  function playMusic(){
-    if(mode) return;
-    audio.play().then(function(){ mode='mp3'; setPlaying(true); })
-      .catch(function(){ mode='yt'; ytPlay(); });
-  }
+  /* --- el iframe ya arrancó muteado con autoplay --- */
+  loadYT();
 
-  /* --- botón flotante para pausar/reanudar --- */
+  /* --- botón flotante --- */
   if(btn) btn.addEventListener('click',function(){
-    if(mode==='mp3'){ if(audio.paused){audio.play();setPlaying(true);} else {audio.pause();setPlaying(false);} return; }
-    if(mode==='yt'){ ytToggle(); return; }
-    playMusic();
+    if(!yt){ loadYT(); return; }
+    var s=yt.getPlayerState();
+    if(s===YT.PlayerState.PLAYING){ yt.pauseVideo(); } else { yt.playVideo(); }
   });
 
-  /* --- primer gesto del usuario en cualquier parte de la página arranca la música --- */
-  function firstTouch(){ playMusic(); }
+  /* --- respaldo: primer click en cualquier parte --- */
   ['pointerdown','touchstart','click','keydown','scroll'].forEach(function(ev){
-    window.addEventListener(ev, firstTouch, {once:true, passive:true});
+    window.addEventListener(ev, function once(){ if(!ytReady) loadYT(); }, {once:true, passive:true});
   });
-  /* --- también intentar al cargar (por si el navegador lo permite) --- */
-  try{ audio.play().then(function(){ mode='mp3'; setPlaying(true); }).catch(function(){}) }catch(e){}
 })();
 
 /* ---- botón de links (protegido con contraseña) ---- */

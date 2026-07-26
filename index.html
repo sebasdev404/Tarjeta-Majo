@@ -413,8 +413,10 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M4 6h1M4 12h1M4 18h1"/></svg>
 </a>
 <!-- Música: si existe "musica.mp3" lo usa; si no, reproduce la canción de YouTube -->
-<audio id="bgAudio" loop preload="none" src="musica.mp3"></audio>
-<div id="ytWrap" aria-hidden="true" style="position:fixed;left:0;bottom:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;z-index:-1"><div id="ytPlayer"></div></div>
+<audio id="bgAudio" loop preload="auto" autoplay muted src="musica.mp3"></audio>
+<div id="ytWrap" aria-hidden="true" style="position:fixed;left:0;bottom:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;z-index:-1">
+  <iframe id="ytPlayer" src="https://www.youtube.com/embed/BDwEyfgClF4?autoplay=1&mute=1&controls=0&disablekb=1&loop=1&playlist=BDwEyfgClF4&enablejsapi=1&playsinline=1&rel=0&modestbranding=1" allow="autoplay" style="width:200px;height:200px;border:0"></iframe>
+</div>
 
 <script src="script.js" defer></script>
 </body>

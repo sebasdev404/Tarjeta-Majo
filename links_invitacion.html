@@ -149,6 +149,13 @@ footer{
   color:var(--ink-soft);
 }
 
+@media (max-width:600px){
+  .card{flex-wrap:wrap;padding:16px 18px}
+  .card .btns{width:100%;justify-content:flex-end}
+  .stat{min-width:110px;padding:12px 18px}
+  .stat .n{font-size:2.2rem}
+}
+
 /* pantalla de login */
 .login-screen{
   position:fixed;inset:0;z-index:200;background:var(--bb-100);
@@ -169,13 +176,6 @@ footer{
 }
 .login-input:focus{border-color:var(--gold)}
 .login-error{font-family:'Montserrat',sans-serif;font-size:.55rem;color:#c0392b;margin-top:10px;min-height:20px}
-
-@media (max-width:600px){
-  .card{flex-wrap:wrap;padding:16px 18px}
-  .card .btns{width:100%;justify-content:flex-end}
-  .stat{min-width:110px;padding:12px 18px}
-  .stat .n{font-size:2.2rem}
-}
 </style>
 </head>
 <body>
@@ -247,10 +247,6 @@ footer{
 var BASE = "https://tarjeta-majo.vercel.app";
 var DATA = [{"nombre": "ANDRES LEONARDO PEÑA Y HERMANA", "invitados": 1}, {"nombre": "ERICK SAMUEL Y PADRES", "invitados": 3}, {"nombre": "FAMILIA CERQUERA HERNANDEZ", "invitados": 1}, {"nombre": "FAMILIA NINCO GARCIA", "invitados": 1}, {"nombre": "JUAN FELIPE NIETO", "invitados": 1}, {"nombre": "SR ANDRES SANTIAGO FORERO", "invitados": 1}, {"nombre": "SR ANTONIO TRUJILLO", "invitados": 1}, {"nombre": "SR, EDINSON Y ESPOSA", "invitados": 1}, {"nombre": "SR,.ANDRES MANJARRES Y ESPOSA", "invitados": 1}, {"nombre": "SR. ANDRES TOLEDO Y ESPOSA", "invitados": 1}, {"nombre": "SR. ANTONIO HERNANDEZ Y ESPOSA", "invitados": 1}, {"nombre": "SR. CARLOS ANDRES GALINDEZ Y ESPOSA", "invitados": 1}, {"nombre": "SR. CARLOS ANDRES GALINDEZ Y ESPOSA", "invitados": 1}, {"nombre": "SR. CHARLES MONTAÑO Y ACOMPAÑANTE", "invitados": 1}, {"nombre": "SR. DIEGO CASTRO Y ESPOSA", "invitados": 1}, {"nombre": "SR. EDUAR FELIPE YAÑEZ", "invitados": 1}, {"nombre": "SR. EFREN", "invitados": 1}, {"nombre": "SR. FRANK SANTIAGO CORDOBA", "invitados": 1}, {"nombre": "SR. GERARDO TOLEDO Y ESPOSA", "invitados": 1}, {"nombre": "SR. GILDARDO BARRTETO PALACIOS", "invitados": 1}, {"nombre": "SR. GUILLERMO DEVIA Y ESPOSA", "invitados": 1}, {"nombre": "SR. HUGO, ESPOSA Y SUEGRA", "invitados": 3}, {"nombre": "SR. IVAN  CERQUERA, ESPOSA E HIJA O", "invitados": 3}, {"nombre": "SR. JAVIER DIAZ Y ESPOSA", "invitados": 1}, {"nombre": "SR. JAVIER MAURICIO PATIÑO, ESPOSA Y PADRE", "invitados": 3}, {"nombre": "SR. JHON JAIRO PALACIOS Y ESPOSA", "invitados": 1}, {"nombre": "SR. JOHAN DAVID MOTTA", "invitados": 1}, {"nombre": "SR. JORGE CAICEDO Y ESPOSA", "invitados": 1}, {"nombre": "SR. JORGE Y ESPOSA", "invitados": 1}, {"nombre": "SR. JUAN SEBASTIAN CASTAÑEDA", "invitados": 1}, {"nombre": "SR. JUAN SEBASTIAN OLAYA Y ACOMPAÑANTE", "invitados": 1}, {"nombre": "SR. LINA GARCIA ESPOSO E HIJO O", "invitados": 3}, {"nombre": "Sr. LUIS CARLOS Y ESPOSA", "invitados": 1}, {"nombre": "SR. RAFAEL Y ESPOSA", "invitados": 1}, {"nombre": "SR. REINALDO GALINDEZ Y ESPOSA", "invitados": 1}, {"nombre": "SR. REINALDO SIERRA Y ESPOSA", "invitados": 1}, {"nombre": "SR. SEBASTIAN AVILA SANCHEZ", "invitados": 1}, {"nombre": "SR. VILLY Y ESPOSA", "invitados": 1}, {"nombre": "SR. WIILIAM Y ESPOSA", "invitados": 1}, {"nombre": "SR. WILLIAM Y ESPOSA", "invitados": 1}, {"nombre": "SR. WILMER QUIROGA Y ESPOSA", "invitados": 1}, {"nombre": "SR.JAVIER PERDOMO BARRIOS", "invitados": 1}, {"nombre": "SR.JOSE LIZARDO Y ESPOSA", "invitados": 1}, {"nombre": "SR.NICOLAS PENAGOS", "invitados": 1}, {"nombre": "SR.SEBASTIAN PERDOMO Y COMPAÑÍA JEJJE", "invitados": 2}, {"nombre": "SRA FLOR CERQUERA Y ESPOSO", "invitados": 2}, {"nombre": "SRA MARINA RIVAS", "invitados": 1}, {"nombre": "SRA,. IDALY SIERRA Y ESPOSO", "invitados": 1}, {"nombre": "SRA.  MIRIAN VALENZUELA", "invitados": 1}, {"nombre": "SRA. ALEJANDRA RAMIREZ Y ESPOSO", "invitados": 1}, {"nombre": "SRA. ARGENIS QUINTERO PALACIOS", "invitados": 1}, {"nombre": "SRA. BERCELIA PALACIOS VALENZUELA", "invitados": 1}, {"nombre": "SRA. DENNIS MILENA OTERO Y ESPOSO", "invitados": 1}, {"nombre": "SRA. INGRID Y ESPOSO", "invitados": 1}, {"nombre": "SRA. JIMENA QUIROGA", "invitados": 1}, {"nombre": "SRA. JUDITH PALACIOS Y ESPOSO", "invitados": 1}, {"nombre": "SRA. LUZ MERY PALACIOS E HIJO", "invitados": 1}, {"nombre": "SRA. MERCEDES CERQUERA", "invitados": 1}, {"nombre": "SRA. OLGA MARIA CERQUERA  E HIJOS", "invitados": 3}, {"nombre": "SRA. SANDRA RAMIREZ Y ACOMPAÑANTE", "invitados": 1}, {"nombre": "SRA. YICELA ANDREA CERQUERA", "invitados": 1}, {"nombre": "SRA.BELLANIRE PALACIOS VALENZUELA", "invitados": 1}, {"nombre": "SRA.MARIA ANTONIA TRUJILLO Y ESPOSO", "invitados": 1}, {"nombre": "SRA.MARICELA GONZALEZ E HIJO", "invitados": 2}, {"nombre": "SRA.NORALBA PERDOMO", "invitados": 1}, {"nombre": "SRTA. ISABELLA CALDERON", "invitados": 1}, {"nombre": "SRTA. ISABELLA VASQUEZ ROJAS Y SR.PADRE", "invitados": 1}, {"nombre": "SRTA. JUANITA ALDANA TELLO", "invitados": 1}];
 
-function loadSaved(){
-  try{var d=localStorage.getItem('mj_tarjetas');if(d){var p=JSON.parse(d);if(Array.isArray(p)&&p.length)DATA=p;}}catch(e){}
-}
-
 /* ---- protección con contraseña ---- */
 (function(){
   var PWD='majo123';
@@ -278,7 +274,6 @@ function loadSaved(){
     document.getElementById('loginBtn').addEventListener('click',check);
     inp.addEventListener('keydown',function(e){if(e.key==='Enter')check()});
     inp.focus();
-    /* ocultar contenido mientras no esté autenticado */
     document.querySelectorAll('.header,.stats,.search-bar,.actions,.container,footer').forEach(function(el){
       el.style.display='none';
     });
@@ -286,6 +281,10 @@ function loadSaved(){
     document.getElementById('loginScreen').style.display='none';
   }
 })();
+
+function loadSaved(){
+  try{var d=localStorage.getItem('mj_tarjetas');if(d){var p=JSON.parse(d);if(Array.isArray(p)&&p.length)DATA=p;}}catch(e){}
+}
 function saveData(){
   try{localStorage.setItem('mj_tarjetas',JSON.stringify(DATA));}catch(e){}
 }
@@ -304,7 +303,7 @@ function render(q){
     if(!match)return;
     count++;totalInv+=d.invitados;
     var url=BASE+'/?nombre='+encodeURIComponent(d.nombre)+'&invitados='+d.invitados;
-    var wa='https://wa.me/?text='+encodeURIComponent(url+'\n\nTe comparto la invitaci\u00f3n a los XV de Mar\u00eda Jos\u00e9 el 12 de septiembre.');
+    var wa='https://wa.me/?text='+encodeURIComponent(url+'\n\n\u2728 Con mucha ilusi\u00f3n te comparto la invitaci\u00f3n a mis XV a\u00f1os. Ser\u00e1 una noche m\u00e1gica llena de sue\u00f1os, mariposas y momentos especiales. \u00a1Me encantar\u00eda que est\u00e9s ah\u00ed para celebrarlo juntos! \u00a1Te espero con todo mi coraz\u00f3n! \ud83e\udd8b\u2728');
     html+='<div class="card" data-index="'+i+'">'+
       '<div class="badge">'+d.invitados+'</div>'+
       '<div class="info"><div class="name">'+esc(d.nombre)+'</div>'+

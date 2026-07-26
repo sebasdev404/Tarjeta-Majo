@@ -66,125 +66,160 @@ body{{font-family:'Cormorant Garamond',serif;color:var(--ink);background:var(--b
   color:rgba(126,169,214,.045);user-select:none;white-space:nowrap;pointer-events:none;z-index:0;
 }}
 .header{{
-  position:relative;z-index:1;text-align:center;padding:48px 20px 24px;
+  position:relative;z-index:1;text-align:center;padding:56px 20px 28px;
   background:linear-gradient(180deg,rgba(255,255,255,.85),transparent);
 }}
-.header .eyebrow{{font-family:'Montserrat',sans-serif;font-weight:500;letter-spacing:.4em;text-transform:uppercase;font-size:.75rem;color:var(--gold-deep)}}
-.header h1{{font-family:'Pinyon Script',cursive;font-size:clamp(2.4rem,10vw,3.6rem);color:var(--bb-600);font-weight:400;margin-top:4px}}
-.header .sub{{font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--ink-soft);margin-top:6px}}
+.header .eyebrow{{font-family:'Montserrat',sans-serif;font-weight:500;letter-spacing:.4em;text-transform:uppercase;font-size:.9rem;color:var(--gold-deep)}}
+.header h1{{font-family:'Pinyon Script',cursive;font-size:clamp(3.2rem,12vw,4.4rem);color:var(--bb-600);font-weight:400;margin-top:4px}}
+.header .sub{{font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:.3em;text-transform:uppercase;font-size:.9rem;color:var(--ink-soft);margin-top:8px}}
 .stats{{
-  position:relative;z-index:1;display:flex;justify-content:center;gap:20px;padding:0 20px 20px;flex-wrap:wrap;
+  position:relative;z-index:1;display:flex;justify-content:center;gap:24px;padding:0 20px 24px;flex-wrap:wrap;
 }}
 .stat{{
-  background:rgba(255,255,255,.88);border:1px solid rgba(196,162,95,.35);border-radius:8px;
-  padding:12px 24px;text-align:center;min-width:120px;box-shadow:var(--shadow);
+  background:rgba(255,255,255,.88);border:1px solid rgba(196,162,95,.35);border-radius:10px;
+  padding:16px 32px;text-align:center;min-width:160px;box-shadow:var(--shadow);
 }}
-.stat .n{{font-size:2rem;font-weight:500;color:var(--bb-600);line-height:1}}
-.stat .l{{font-family:'Montserrat',sans-serif;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}}
+.stat .n{{font-size:2.8rem;font-weight:500;color:var(--bb-600);line-height:1}}
+.stat .l{{font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}}
 
 .search-bar{{
-  position:relative;z-index:1;max-width:500px;margin:0 auto 18px;padding:0 20px;
+  position:relative;z-index:1;max-width:600px;margin:0 auto 22px;padding:0 20px;
 }}
 .search-bar input{{
-  width:100%;padding:14px 18px 14px 48px;border:1px solid rgba(196,162,95,.4);border-radius:999px;
-  font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);
+  width:100%;padding:18px 24px 18px 56px;border:1px solid rgba(196,162,95,.4);border-radius:999px;
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ink);
   background:rgba(255,255,255,.92);box-shadow:var(--shadow);outline:none;
   transition:border-color .3s, box-shadow .3s;
 }}
 .search-bar input:focus{{border-color:var(--gold);box-shadow:0 0 0 3px rgba(196,162,95,.2)}}
 .search-bar svg{{
-  position:absolute;left:36px;top:50%;transform:translateY(-50%);width:20px;height:20px;
+  position:absolute;left:36px;top:50%;transform:translateY(-50%);width:22px;height:22px;
   color:var(--gold-deep);pointer-events:none;
 }}
 
 .actions{{
-  position:relative;z-index:1;display:flex;justify-content:center;gap:12px;padding:0 20px 20px;flex-wrap:wrap;
+  position:relative;z-index:1;display:flex;justify-content:center;gap:14px;padding:0 20px 24px;flex-wrap:wrap;
 }}
 .btn{{
   display:inline-flex;align-items:center;gap:8px;
   font-family:'Montserrat',sans-serif;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
-  font-size:.6rem;text-decoration:none;cursor:pointer;
-  border:1px solid var(--gold);border-radius:999px;padding:10px 22px;
+  font-size:.7rem;text-decoration:none;cursor:pointer;
+  border:1px solid var(--gold);border-radius:999px;padding:12px 28px;
   background:linear-gradient(180deg,#fff,var(--gold-3));color:var(--gold-deep);transition:.3s;
 }}
 .btn:hover{{background:var(--gold);color:#fff}}
 .btn.primary{{background:var(--bb-600);color:#fff;border-color:var(--bb-600)}}
 .btn.primary:hover{{background:var(--bb-500);border-color:var(--bb-500)}}
 
-.container{{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:0 20px 80px}}
+.container{{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 20px 80px}}
 
 .card{{
   background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.8));
-  border:1px solid rgba(196,162,95,.35);border-radius:10px;padding:16px 20px;
-  margin-bottom:10px;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;gap:14px;
+  border:1px solid rgba(196,162,95,.35);border-radius:12px;padding:20px 24px;
+  margin-bottom:12px;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;gap:18px;
   transition:opacity .3s, transform .3s;
 }}
 .card.hidden{{display:none}}
 .card .badge{{
-  flex:0 0 auto;width:42px;height:42px;border-radius:50%;
+  flex:0 0 auto;width:60px;height:60px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Montserrat',sans-serif;font-weight:600;font-size:.85rem;
-  background:linear-gradient(180deg,var(--gold-3),var(--gold));color:#fff;
-  box-shadow:0 4px 10px -4px rgba(196,162,95,.5);
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:1.2rem;
+  background:var(--bb-600);color:var(--gold-2);
+  box-shadow:0 4px 12px -4px rgba(63,100,143,.45);
 }}
 .card .info{{flex:1;min-width:0}}
-.card .info .name{{font-size:1.3rem;color:var(--ink);font-weight:500;line-height:1.3}}
-.card .info .url{{display:block;font-size:.75rem;color:var(--bb-500);word-break:break-all;margin-top:2px;font-family:'Montserrat',sans-serif}}
+.card .info .name{{font-size:2rem;color:var(--ink);font-weight:500;line-height:1.3}}
+.card .info .url{{display:block;font-size:1rem;color:var(--bb-500);word-break:break-all;margin-top:6px;font-family:'Montserrat',sans-serif}}
 .card .info .url a{{color:var(--bb-500);text-decoration:none}}
 .card .info .url a:hover{{text-decoration:underline;color:var(--bb-600)}}
-.card .btns{{display:flex;gap:6px;flex:0 0 auto}}
+.card .btns{{display:flex;gap:8px;flex:0 0 auto}}
 .card .btns a,.card .btns button{{
-  width:38px;height:38px;border-radius:50%;border:1px solid rgba(196,162,95,.3);
+  width:44px;height:44px;border-radius:50%;border:1px solid rgba(196,162,95,.3);
   display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;
   background:rgba(255,255,255,.9);color:var(--bb-600);transition:.25s;font-size:0;
 }}
 .card .btns a:hover,.card .btns button:hover{{background:var(--gold);color:#fff;border-color:var(--gold)}}
-.card .btns svg{{width:16px;height:16px}}
+.card .btns svg{{width:20px;height:20px}}
 .card .btns .copied{{background:#25d366!important;color:#fff!important;border-color:#25d366!important}}
 
 .modal-overlay{{
   position:fixed;inset:0;z-index:100;background:rgba(36,50,64,.6);backdrop-filter:blur(3px);
-  display:none;align-items:center;justify-content:center;padding:20px;
+  display:none;align-items:center;justify-content:center;padding:24px;
 }}
 .modal-overlay.show{{display:flex}}
 .modal{{
-  background:var(--bb-50);border:1px solid var(--gold);border-radius:12px;
-  padding:32px 28px;max-width:420px;width:100%;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);
+  background:var(--bb-50);border:1px solid var(--gold);border-radius:14px;
+  padding:40px 32px;max-width:480px;width:100%;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);
   position:relative;
 }}
-.modal h2{{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.6rem;color:var(--ink);margin-bottom:16px}}
-.modal .field{{margin-bottom:14px}}
-.modal .field label{{display:block;font-family:'Montserrat',sans-serif;font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:4px}}
+.modal h2{{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2.2rem;color:var(--ink);margin-bottom:20px}}
+.modal .field{{margin-bottom:18px}}
+.modal .field label{{display:block;font-family:'Montserrat',sans-serif;font-size:.75rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:6px}}
 .modal .field input{{
-  width:100%;padding:10px 14px;border:1px solid rgba(196,162,95,.4);border-radius:8px;
-  font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);
+  width:100%;padding:14px 18px;border:1px solid rgba(196,162,95,.4);border-radius:8px;
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ink);
   background:#fff;outline:none;transition:border-color .3s;
 }}
 .modal .field input:focus{{border-color:var(--gold)}}
-.modal .modal-actions{{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}}
+.modal .modal-actions{{display:flex;gap:12px;justify-content:flex-end;margin-top:24px}}
 .modal .close-btn{{
-  position:absolute;top:12px;right:16px;background:none;border:0;
-  font-size:1.6rem;cursor:pointer;color:var(--ink-soft);line-height:1;
+  position:absolute;top:14px;right:18px;background:none;border:0;
+  font-size:2rem;cursor:pointer;color:var(--ink-soft);line-height:1;
 }}
 
-.empty{{text-align:center;padding:40px 20px;color:var(--ink-soft);font-size:1.3rem}}
+.empty{{text-align:center;padding:50px 20px;color:var(--ink-soft);font-size:1.6rem}}
 
 footer{{
-  position:relative;z-index:1;text-align:center;padding:24px 20px 40px;
-  font-family:'Montserrat',sans-serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+  position:relative;z-index:1;text-align:center;padding:28px 20px 48px;
+  font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink-soft);
 }}
 
 @media (max-width:600px){{
-  .card{{flex-wrap:wrap;padding:14px 16px}}
+  .card{{flex-wrap:wrap;padding:16px 18px}}
   .card .btns{{width:100%;justify-content:flex-end}}
-  .stat{{min-width:90px;padding:10px 16px}}
-  .stat .n{{font-size:1.6rem}}
+  .stat{{min-width:110px;padding:12px 18px}}
+  .stat .n{{font-size:2.2rem}}
 }}
+
+/* pantalla de login */
+.login-screen{{
+  position:fixed;inset:0;z-index:200;background:var(--bb-100);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}}
+.login-box{{
+  background:rgba(255,255,255,.95);border:1px solid var(--gold);border-radius:14px;
+  padding:40px 32px;max-width:380px;width:100%;text-align:center;box-shadow:0 30px 60px -30px rgba(0,0,0,.4);
+}}
+.login-icon{{color:var(--bb-600);margin-bottom:10px}}
+.login-icon svg{{width:48px;height:48px}}
+.login-title{{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--ink);font-weight:500}}
+.login-sub{{font-family:'Montserrat',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin:8px 0 18px}}
+.login-input{{
+  width:100%;padding:14px 18px;border:1px solid rgba(196,162,95,.4);border-radius:8px;
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ink);background:#fff;
+  outline:none;transition:border-color .3s;text-align:center;
+}}
+.login-input:focus{{border-color:var(--gold)}}
+.login-error{{font-family:'Montserrat',sans-serif;font-size:.55rem;color:#c0392b;margin-top:10px;min-height:20px}}
 </style>
 </head>
 <body>
 <div class="bg"><span class="watermark">MJ</span></div>
+
+<!-- Pantalla de login -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <div class="login-title">Acceso restringido</div>
+    <div class="login-sub">Ingresa la contrase\u00f1a para administrar los invitados</div>
+    <input class="login-input" type="password" id="loginPwd" placeholder="Contrase\u00f1a" autocomplete="off">
+    <button class="btn primary" id="loginBtn" style="width:100%;justify-content:center;margin-top:12px">Entrar</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
 
 <div class="header">
   <div class="eyebrow">XV años · María José</div>
@@ -238,6 +273,41 @@ footer{{
 var BASE = {json.dumps(BASE_URL)};
 var DATA = {data_json};
 
+/* ---- protecci\u00f3n con contrase\u00f1a ---- */
+(function(){{
+  var PWD='majo123';
+  var s=new URLSearchParams(location.search);
+  if(s.get('pwd')===PWD){{try{{sessionStorage.setItem('mj_auth','1');}}catch(e){{}}}}
+  var auth=false;
+  try{{auth=sessionStorage.getItem('mj_auth')==='1';}}catch(e){{}}
+  if(!auth){{
+    document.getElementById('loginScreen').style.display='flex';
+    var inp=document.getElementById('loginPwd');
+    var err=document.getElementById('loginError');
+    function check(){{
+      if(inp.value===PWD){{
+        try{{sessionStorage.setItem('mj_auth','1');}}catch(e){{}}
+        document.getElementById('loginScreen').style.display='none';
+        document.querySelectorAll('.header,.stats,.search-bar,.actions,.container,footer').forEach(function(el){{
+          el.style.display='';
+        }});
+        render('');
+      }}else{{
+        err.textContent='Contrase\u00f1a incorrecta';
+        inp.value='';inp.focus();
+      }}
+    }}
+    document.getElementById('loginBtn').addEventListener('click',check);
+    inp.addEventListener('keydown',function(e){{if(e.key==='Enter')check()}});
+    inp.focus();
+    document.querySelectorAll('.header,.stats,.search-bar,.actions,.container,footer').forEach(function(el){{
+      el.style.display='none';
+    }});
+  }}else{{
+    document.getElementById('loginScreen').style.display='none';
+  }}
+}})();
+
 function loadSaved(){{
   try{{var d=localStorage.getItem('mj_tarjetas');if(d){{var p=JSON.parse(d);if(Array.isArray(p)&&p.length)DATA=p;}}}}catch(e){{}}
 }}
@@ -246,7 +316,10 @@ function saveData(){{
 }}
 
 loadSaved();
-DATA.sort(function(a,b){{return a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())}});
+/* solo ordenar si es la primera vez (sin datos guardados) */
+if(!localStorage.getItem('mj_tarjetas')){{
+  DATA.sort(function(a,b){{return a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())}});
+}}
 
 function render(q){{
   q=(q||'').toLowerCase().trim();
@@ -256,7 +329,7 @@ function render(q){{
     if(!match)return;
     count++;totalInv+=d.invitados;
     var url=BASE+'/?nombre='+encodeURIComponent(d.nombre)+'&invitados='+d.invitados;
-    var wa='https://wa.me/?text='+encodeURIComponent(url+'\\n\\nTe comparto la invitaci\\u00f3n a los XV de Mar\\u00eda Jos\\u00e9 el 12 de septiembre.');
+    var wa='https://wa.me/?text='+encodeURIComponent(url+'\\n\\n\\u2728 Con mucha ilusi\\u00f3n te comparto la invitaci\\u00f3n a mis XV a\\u00f1os. Ser\\u00e1 una noche m\\u00e1gica llena de sue\\u00f1os, mariposas y momentos especiales. \\u00a1Me encantar\\u00eda que est\\u00e9s ah\\u00ed para celebrarlo juntos! \\u00a1Te espero con todo mi coraz\\u00f3n! \\ud83e\\udd8b\\u2728');
     html+='<div class="card" data-index="'+i+'">'+
       '<div class="badge">'+d.invitados+'</div>'+
       '<div class="info"><div class="name">'+esc(d.nombre)+'</div>'+
@@ -323,8 +396,7 @@ document.getElementById('modalSave').addEventListener('click',function(){{
   var nom=document.getElementById('modalNombre').value.trim();
   var inv=parseInt(document.getElementById('modalInvitados').value,10)||1;
   if(!nom){{alert('Escribe el nombre de la tarjeta');document.getElementById('modalNombre').focus();return}}
-  DATA.push({{nombre:nom,invitados:inv}});
-  DATA.sort(function(a,b){{return a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())}});
+  DATA.unshift({{nombre:nom,invitados:inv}});
   saveData();
   cerrarModal();
   render(document.getElementById('searchInput').value);
