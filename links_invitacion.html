@@ -225,7 +225,7 @@ footer{
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <button class="close-btn" id="modalClose">&times;</button>
-    <h2>Nueva tarjeta</h2>
+    <h2 id="modalTitle">Nueva tarjeta</h2>
     <div class="field">
       <label>Nombre de la tarjeta</label>
       <input type="text" id="modalNombre" placeholder="Ej: Familia Pérez">
@@ -318,6 +318,9 @@ function render(q){
         '<button onclick="copiar('+i+',this)" title="Copiar link">'+
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'+
         '</button>'+
+        '<button onclick="editar('+i+')" title="Editar tarjeta">'+
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>'+
+        '</button>'+
         '<button onclick="eliminar('+i+',this)" title="Eliminar tarjeta">'+
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>'+
         '</button>'+
@@ -341,6 +344,16 @@ function copiar(i,btn){
   setTimeout(function(){btn.classList.remove('copied');btn.innerHTML=orig;},1800);
 }
 
+function editar(i){
+  editIndex=i;
+  document.getElementById('modalTitle').textContent='Editar tarjeta';
+  document.getElementById('modalSave').textContent='Guardar cambios';
+  document.getElementById('modalNombre').value=DATA[i].nombre;
+  document.getElementById('modalInvitados').value=DATA[i].invitados;
+  modal.classList.add('show');
+  setTimeout(function(){document.getElementById('modalNombre').focus();},100);
+}
+
 function eliminar(i,btn){
   if(!confirm('\u00bfEliminar "'+DATA[i].nombre+'"?'))return;
   DATA.splice(i,1);
@@ -355,7 +368,11 @@ document.getElementById('searchInput').addEventListener('input',function(){
 
 /* modal */
 var modal=document.getElementById('modal');
+var editIndex=null;
 document.getElementById('addBtn').addEventListener('click',function(){
+  editIndex=null;
+  document.getElementById('modalTitle').textContent='Nueva tarjeta';
+  document.getElementById('modalSave').textContent='Crear tarjeta';
   document.getElementById('modalNombre').value='';
   document.getElementById('modalInvitados').value='1';
   modal.classList.add('show');
@@ -370,7 +387,11 @@ document.getElementById('modalSave').addEventListener('click',function(){
   var nom=document.getElementById('modalNombre').value.trim();
   var inv=parseInt(document.getElementById('modalInvitados').value,10)||1;
   if(!nom){alert('Escribe el nombre de la tarjeta');document.getElementById('modalNombre').focus();return}
-  DATA.unshift({nombre:nom,invitados:inv});
+  if(editIndex!==null){
+    DATA[editIndex]={nombre:nom,invitados:inv};
+  }else{
+    DATA.unshift({nombre:nom,invitados:inv});
+  }
   saveData();
   cerrarModal();
   render(document.getElementById('searchInput').value);
